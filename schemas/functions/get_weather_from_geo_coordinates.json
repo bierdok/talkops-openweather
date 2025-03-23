@@ -1,0 +1,18 @@
+{
+  "name": "get_weather_from_geo_coordinates",
+  "description": "Get current weather from geo coordinates. Don't provide scientific data except for temperature and wind unless specifically requested.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "latitude": {
+        "type": "string",
+        "description": "The latitude of the location."
+      },
+      "longitude": {
+        "type": "string",
+        "description": "The longitude of the location."
+      }
+    },
+    "required": ["latitude", "longitude"]
+  }
+}

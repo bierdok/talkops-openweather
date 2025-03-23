@@ -1,0 +1,82 @@
+{
+  "temp_min": {
+     "description": "Minimum temperature",
+     "units": {
+       "standard": "Kelvin",
+       "metric": "Celsius",
+       "imperial": "Fahrenheit"
+     }
+  },
+  "temp_max": {
+     "description": "Maximum temperature",
+     "units": {
+       "standard": "Kelvin",
+       "metric": "Celsius",
+       "imperial": "Fahrenheit"
+     }
+  },
+  "feels_like": {
+     "description": "Temperature in account with human perception of weather",
+     "units": {
+       "standard": "Kelvin",
+       "metric": "Celsius",
+       "imperial": "Fahrenheit"
+     }
+  },
+  "pressure": {
+     "description": "Atmospheric pressure",
+     "units": {
+       "standard": "hPa",
+       "metric": "hPa",
+       "imperial": "hPa"
+     }
+  },
+  "humidity": {
+     "description": "Humidity",
+     "units": {
+       "standard": "%",
+       "metric": "%",
+       "imperial": "%"
+     }
+  },
+  "visibility": {
+     "description": "Visibility",
+     "units": {
+       "standard": "meters",
+       "metric": "meters",
+       "imperial": "meters"
+     }
+  },
+  "speed": {
+     "description": "Wind speed",
+     "units": {
+       "standard": "meter/sec",
+       "metric": "meter/sec",
+       "imperial": "miles/hour"
+     }
+  },
+  "gust": {
+     "description": "Wind gust",
+     "units": {
+       "standard": "meter/sec",
+       "metric": "meter/sec",
+       "imperial": "miles/hour"
+     }
+  },
+  "clouds": {
+     "description": "Cloudiness",
+     "units": {
+       "standard": "%",
+       "metric": "%",
+       "imperial": "%"
+     }
+  },
+  "rain": {
+     "description": "Precipitation volume",
+     "units": {
+       "standard": "mm",
+       "metric": "mm",
+       "imperial": "mm"
+     }
+  }
+}

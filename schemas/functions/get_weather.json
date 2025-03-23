@@ -1,0 +1,22 @@
+{
+  "name": "get_weather",
+  "description": "Get current weather from geo names. Don't provide scientific data except for temperature and wind unless specifically requested.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "city": {
+        "type": "string",
+        "description": "The name of the city."
+      },
+      "state": {
+        "type": "string",
+        "description": "The name of the state for United States only."
+      },
+      "country": {
+        "type": "string",
+        "description": "The two-letter country code defined in ISO 3166-1."
+      }
+    },
+    "required": ["city", "country"]
+  }
+}
