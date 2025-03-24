@@ -1,14 +1,20 @@
 {
-  "categories": [],
-  "dockerRepository": null,
-  "features": [],
-  "icon": null,
-  "installationSteps": [],
+  "category": "Weather",
+  "dockerRepository": "bierdok/talkops-openweather",
+  "features": [
+    "Current weather",
+    "Forecasts for the next 5 days"
+  ],
+  "icon": "https://play-lh.googleusercontent.com/-8wkZVkXugyyke6sDPUP5xHKQMzK7Ub3ms2EK9Jr00uhf1fiMhLbqX7K9SdoxbAuhQ",
+  "installationSteps": [
+    "[Create an account](https://home.openweathermap.org/users/sign_up)",
+    "[Generate an API key](https://home.openweathermap.org/api_keys)"
+  ],
   "name": "OpenWeather",
   "sdk": {
     "name": "nodejs",
-    "version": "2.3.5"
+    "version": "2.4.0"
   },
-  "version": null,
+  "version": "1.0.0",
   "website": "https://openweathermap.org/"
 }
