@@ -29,7 +29,7 @@ const apiKey = new Parameter('API_KEY').setDescription('The copied API key.')
 const extension = new Extension()
   .setName('OpenWeather')
   .setWebsite('https://openweathermap.org/')
-  .setCategories(['Weather'])
+  .setCategory('Weather')
   .setIcon(
     'https://play-lh.googleusercontent.com/-8wkZVkXugyyke6sDPUP5xHKQMzK7Ub3ms2EK9Jr00uhf1fiMhLbqX7K9SdoxbAuhQ',
   )
