@@ -1,5 +1,4 @@
 import { Extension, Parameter } from 'talkops'
-import pkg from './package.json' with { type: 'json' }
 import axios from 'axios'
 import yaml from 'js-yaml'
 
@@ -33,8 +32,6 @@ const extension = new Extension()
   .setIcon(
     'https://play-lh.googleusercontent.com/-8wkZVkXugyyke6sDPUP5xHKQMzK7Ub3ms2EK9Jr00uhf1fiMhLbqX7K9SdoxbAuhQ',
   )
-  .setVersion(pkg.version)
-  .setDockerRepository('bierdok/talkops-openweather')
   .setFeatures(['Current weather', 'Forecasts for the next 5 days'])
   .setinstallationSteps([
     '[Create an account](https://home.openweathermap.org/users/sign_up)',

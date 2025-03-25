@@ -1,5 +1,4 @@
 # TalkOps Extension: OpenWeather
-![Docker Pulls](https://img.shields.io/docker/pulls/bierdok/talkops-openweather)
 
 A TalkOps Extension made to work with [TalkOps](https://talkops.app).
 
