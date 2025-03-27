@@ -9,21 +9,24 @@ import outputs from './parameters/outputs.json' with { type: 'json' }
 import getWeatherFunction from './schemas/functions/get_weather.json' with { type: 'json' }
 import getForecastFunction from './schemas/functions/get_forecast.json' with { type: 'json' }
 
+const apiKey = new Parameter('API_KEY').setDescription('The copied API key.').setType('password')
+
 const defaultLocation = new Parameter('DEFAULT_LOCATION')
   .setDescription('The default location.')
   .setPossibleValues(['New York', 'Geneva, Swiss', 'Paris, France'])
+  .setType('select')
 
 const language = new Parameter('LANGUAGE')
   .setDescription('The language.')
   .setDefaultValue('English')
   .setAvailableValues(Object.values(languages))
+  .setType('select')
 
 const temperatureUnit = new Parameter('TEMPERATURE_UNIT')
   .setDescription('The temperature unit to defined unit of measurement.')
   .setDefaultValue('Kelvin')
   .setAvailableValues(Object.values(units))
-
-const apiKey = new Parameter('API_KEY').setDescription('The copied API key.')
+  .setType('select')
 
 const extension = new Extension()
   .setName('OpenWeather')
@@ -37,7 +40,7 @@ const extension = new Extension()
     '[Create an account](https://home.openweathermap.org/users/sign_up)',
     '[Generate an API key](https://home.openweathermap.org/api_keys)',
   ])
-  .setParameters([defaultLocation, language, temperatureUnit, apiKey])
+  .setParameters([apiKey, defaultLocation, language, temperatureUnit])
 
 const api = axios.create({
   baseURL: 'https://api.openweathermap.org/data/2.5/',
