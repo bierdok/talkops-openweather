@@ -14,7 +14,6 @@ const apiKey = new Parameter('API_KEY').setDescription('The copied API key.').se
 const defaultLocation = new Parameter('DEFAULT_LOCATION')
   .setDescription('The default location.')
   .setPossibleValues(['New York', 'Geneva, Swiss', 'Paris, France'])
-  .setType('select')
 
 const language = new Parameter('LANGUAGE')
   .setDescription('The language.')
@@ -31,7 +30,7 @@ const temperatureUnit = new Parameter('TEMPERATURE_UNIT')
 const extension = new Extension()
   .setName('OpenWeather')
   .setWebsite('https://openweathermap.org/')
-  .setCategory('Weather')
+  .setCategory('weather')
   .setIcon(
     'https://play-lh.googleusercontent.com/-8wkZVkXugyyke6sDPUP5xHKQMzK7Ub3ms2EK9Jr00uhf1fiMhLbqX7K9SdoxbAuhQ',
   )

@@ -1,5 +1,6 @@
 {
-  "category": "Weather",
+  "category": "weather",
+  "demo": false,
   "features": [
     "Current weather",
     "Forecasts for the next 5 days"
@@ -8,7 +9,7 @@
   "name": "OpenWeather",
   "sdk": {
     "name": "nodejs",
-    "version": "2.6.0"
+    "version": "2.7.0"
   },
   "softwareVersion": null,
   "website": "https://openweathermap.org/"
