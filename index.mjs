@@ -87,7 +87,7 @@ extension.setFunctionSchemas([getWeatherFunction, getForecastFunction])
 //     const response = await api.get(url);
 //     return response.data;
 //   } catch (err) {
-//     extension.errors = [err.message];
+//     console.error(err.message)
 //     return "Error.";
 //   }
 // }
@@ -107,7 +107,7 @@ async function request(endpoint, city, state, country) {
     const response = await api.get(url)
     return response.data
   } catch (err) {
-    extension.errors = [err.message]
+    console.error(err.message)
     return 'Error.'
   }
 }
