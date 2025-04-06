@@ -74,6 +74,7 @@ ${yaml.dump({ defaultLocation: defaultLocation.getValue(), output })}
 \`\`\`
   `)
 }
+refresh()
 
 extension.setFunctionSchemas([getWeatherFunction, getForecastFunction])
 
