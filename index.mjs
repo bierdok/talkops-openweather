@@ -59,7 +59,10 @@ function refresh() {
   }
   let output = {}
   for (let key in outputs) {
-    output[key].unit = outputs[key].units[unit]
+    output[key] = {
+      description: outputs[key].description,
+      unit: outputs[key].units[unit],
+    }
   }
   extension.setInstructions(`
 You are a nice and pleasant weather assistant.
