@@ -46,31 +46,31 @@ const api = axios.create({
 })
 
 let unit = 'standard'
-for (let key in units) {
-  if (units[key] !== temperatureUnit.getValue()) continue
-  unit = key
-}
-
 let lang = 'en'
-for (let key in languages) {
-  if (languages[key] !== language.getValue()) continue
-  lang = key
-}
 
-for (let key in outputs) {
-  outputs[key].unit = outputs[key].units[unit]
-  delete outputs[key].units
-}
-
-extension.setInstructions(`
+function refresh() {
+  for (let key in units) {
+    if (units[key] !== temperatureUnit.getValue()) continue
+    unit = key
+  }
+  for (let key in languages) {
+    if (languages[key] !== language.getValue()) continue
+    lang = key
+  }
+  let output = {}
+  for (let key in outputs) {
+    output[key].unit = outputs[key].units[unit]
+  }
+  extension.setInstructions(`
 You are a nice and pleasant weather assistant.
 Provide general weather information and offer practical advice based on current weather conditions.
 Round the temperatures to the nearest degree without decimals.
 
 \`\`\` yaml
-${yaml.dump({ defaultLocation: defaultLocation.getValue(), outputs })}
+${yaml.dump({ defaultLocation: defaultLocation.getValue(), output })}
 \`\`\`
-`)
+  `)
+}
 
 extension.setFunctionSchemas([getWeatherFunction, getForecastFunction])
 
@@ -126,3 +126,5 @@ extension.setFunctions([
     return await request('forecast', city, state, country)
   },
 ])
+
+extension.setBootstrap(refresh)
