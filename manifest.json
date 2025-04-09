@@ -9,7 +9,7 @@
   "name": "OpenWeather",
   "sdk": {
     "name": "nodejs",
-    "version": "2.11.2"
+    "version": "2.11.3"
   },
   "softwareVersion": null,
   "website": "https://openweathermap.org/"
