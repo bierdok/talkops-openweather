@@ -2,12 +2,12 @@ import { Extension, Parameter } from 'talkops'
 import axios from 'axios'
 import yaml from 'js-yaml'
 
-import languages from './parameters/languages.json' with { type: 'json' }
-import units from './parameters/units.json' with { type: 'json' }
-import outputs from './parameters/outputs.json' with { type: 'json' }
+import languages from './src/parameters/languages.json' with { type: 'json' }
+import units from './src/parameters/units.json' with { type: 'json' }
+import outputs from './src/parameters/outputs.json' with { type: 'json' }
 
-import getWeatherFunction from './schemas/functions/get_weather.json' with { type: 'json' }
-import getForecastFunction from './schemas/functions/get_forecast.json' with { type: 'json' }
+import getWeatherFunction from './src/functions/get_weather.json' with { type: 'json' }
+import getForecastFunction from './src/functions/get_forecast.json' with { type: 'json' }
 
 const apiKey = new Parameter('API_KEY').setDescription('The copied API key.').setType('password')
 
