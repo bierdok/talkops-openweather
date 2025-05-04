@@ -40,6 +40,7 @@ const extension = new Extension()
     '[Generate an API key](https://home.openweathermap.org/api_keys)',
   ])
   .setParameters([apiKey, defaultLocation, language, temperatureUnit])
+  .start()
 
 const api = axios.create({
   baseURL: 'https://api.openweathermap.org/data/2.5/',
