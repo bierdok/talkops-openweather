@@ -40,16 +40,33 @@ const extension = new Extension()
     '[Generate an API key](https://home.openweathermap.org/api_keys)',
   ])
   .setParameters([apiKey, defaultLocation, language, temperatureUnit])
+  .setFunctionSchemas([getWeatherFunction, getForecastFunction])
+  .setFunctions([
+    // async function get_weather_from_geo_coordinates(latitude, longitude) {
+    //   return await requestFromGeoCoordinates("weather", latitude, longitude);
+    // },
+    // async function get_forecast_from_geo_coordinates(latitude, longitude) {
+    //   return await requestFromGeoCoordinates("forecast", latitude, longitude);
+    // },
+    async function get_weather(city, state, country) {
+      return await request('weather', city, state, country)
+    },
+    async function get_forecast(city, state, country) {
+      return await request('forecast', city, state, country)
+    },
+  ])
   .start()
-
-const api = axios.create({
-  baseURL: 'https://api.openweathermap.org/data/2.5/',
-})
 
 let unit = 'standard'
 let lang = 'en'
 
-function refresh() {
+const baseInstructions = `
+You are a nice and pleasant weather assistant.
+Provide general weather information and offer practical advice based on current weather conditions.
+Round the temperatures to the nearest degree without decimals.
+`
+
+function updateMemory() {
   for (let key in units) {
     if (units[key] !== temperatureUnit.getValue()) continue
     unit = key
@@ -65,19 +82,21 @@ function refresh() {
       unit: outputs[key].units[unit],
     }
   }
-  extension.setInstructions(`
-You are a nice and pleasant weather assistant.
-Provide general weather information and offer practical advice based on current weather conditions.
-Round the temperatures to the nearest degree without decimals.
-
-\`\`\` yaml
-${yaml.dump({ defaultLocation: defaultLocation.getValue(), output })}
-\`\`\`
-  `)
+  extension.setInstructions(
+    [
+      baseInstructions,
+      '',
+      '``` yaml',
+      yaml.dump({ defaultLocation: defaultLocation.getValue(), output }),
+      '```',
+    ].join('\n'),
+  )
 }
-refresh()
+updateMemory()
 
-extension.setFunctionSchemas([getWeatherFunction, getForecastFunction])
+const api = axios.create({
+  baseURL: 'https://api.openweathermap.org/data/2.5/',
+})
 
 // async function requestFromGeoCoordinates(endpoint, latitude, longitude) {
 //   const parameters = {
@@ -117,19 +136,4 @@ async function request(endpoint, city, state, country) {
   }
 }
 
-extension.setFunctions([
-  // async function get_weather_from_geo_coordinates(latitude, longitude) {
-  //   return await requestFromGeoCoordinates("weather", latitude, longitude);
-  // },
-  // async function get_forecast_from_geo_coordinates(latitude, longitude) {
-  //   return await requestFromGeoCoordinates("forecast", latitude, longitude);
-  // },
-  async function get_weather(city, state, country) {
-    return await request('weather', city, state, country)
-  },
-  async function get_forecast(city, state, country) {
-    return await request('forecast', city, state, country)
-  },
-])
-
-extension.on('boot', refresh)
+extension.on('boot', updateMemory)
